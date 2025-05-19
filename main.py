@@ -340,20 +340,20 @@ class HardComputer(EasyComputer):
 
                 if gamelogic[rowX][rowY] == 'O':
                     TOKENS.append(
-                        Tokens(FIRE, pGameGrid[rowX][rowY], 'Hit', None,None, None))
+                        Tokens(FIRE, pGameGrid[rowX][rowY], 'Hit'))
                     gamelogic[rowX][rowY] = 'T'
                     self.generateMoves((rowX, rowY), gamelogic)
                     self.turn = False
                 else:
                     gamelogic[rowX][rowY] = 'X'
-                    TOKENS.append(Tokens(WATER, pGameGrid[rowX][rowY], 'Miss', None, None, None))
+                    TOKENS.append(Tokens(WATER, pGameGrid[rowX][rowY], 'Miss'))
                     self.turn = False
 
         elif len(self.moves) > 0:
             COMPTURNTIMER = pygame.time.get_ticks()
             if COMPTURNTIMER - TURNTIMER >= 2000:
                 rowX, rowY = self.moves[0]
-                TOKENS.append(Tokens(FIRE, pGameGrid[rowX][rowY], 'Hit', None,None, None))
+                TOKENS.append(Tokens(FIRE, pGameGrid[rowX][rowY], 'Hit'))
                 gamelogic[rowX][rowY] = 'T'
                 self.moves.remove((rowX, rowY))
                 self.turn = False
